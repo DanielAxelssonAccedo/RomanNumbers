@@ -4,10 +4,11 @@ const splitInput = CreateSplittinput()
 
 
 console.log('Outside the function ' + splitInput)
-ForLoopslipptArray(CreateSplittinput())
+ForLoopslipptToArabicNumbers(CreateSplittinput())
 ConvertArabicToRoman(ArabicNumbers)
 ResultToText(RomanNumbers)
 
+//Funkar git fan-skapet?
 
 function CreateSplittinput()
 {
@@ -18,7 +19,7 @@ console.log('in the function ' + splitInput)
 return splitInput
 }
 
-function ForLoopslipptArray(list){
+function ForLoopslipptToArabicNumbers(list){
     for(i = 0; i < list.length; i++){
         ArabicNumbers.push(parseInt(list[i]))   
     }
