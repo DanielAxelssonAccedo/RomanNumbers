@@ -1,6 +1,6 @@
 module.exports = {
 pang:function ()
 {
-    return "HelloWorld"
+    return "Hello World"
 }
 }
