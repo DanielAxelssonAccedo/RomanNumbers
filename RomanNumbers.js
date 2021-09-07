@@ -5,15 +5,12 @@ ConvertArabicToRoman:function(n)
 {
     if(Number.isInteger(n) != true)
     {
-        console.log('This is not an integer')
-        return false
-    
+        throw new TypeError("n is not an integer")
     }
 
-    if(n === 0)
+    if(n <= 0)
     {
-        console.log('Roman Numbers dont have 0!')
-        return false
+        throw new TypeError("n must be a postive non-zero integer")
     }
 
     switch(n) {
