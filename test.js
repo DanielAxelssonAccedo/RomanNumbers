@@ -46,14 +46,78 @@ describe('RomanNumbers', function() {
   
     });
    
-    // it('should convert decands to roman', function () {
-    //   assert.ok(romannumbers.ConvertArabicToRoman(10) === "X")
-    //   assert.ok(romannumbers.ConvertArabicToRoman(21) === "XXI")
-    //   assert.ok(romannumbers.ConvertArabicToRoman(56) === "LVI")
-    //   assert.ok(romannumbers.ConvertArabicToRoman(98) === "LXXXXVIII")
-    //   assert.ok(romannumbers.ConvertArabicToRoman(99) === "IC" )
+    it('should convert 10 to roman', function () {
+      assert.ok(romannumbers.ConvertArabicToRoman(10) === "X")
       
-    // });
+      
+    });
+
+    it('should convert 30 to roman', function () {
+
+      assert.ok(romannumbers.ConvertArabicToRoman(30) === "XXX")
+      
+    });
+
+    it('should convert 21 to roman', function () {
+
+      assert.ok(romannumbers.ConvertArabicToRoman(21) === "XXI")
+      
+    });
+
+    it('should convert decands to roman', function () {
+      assert.ok(romannumbers.ConvertArabicToRoman(56) === "LVI")
+      assert.ok(romannumbers.ConvertArabicToRoman(98) === "XCVIII")
+      assert.ok(romannumbers.ConvertArabicToRoman(99) === "XCIX")
+    });
 
   });
+
+  describe('ConvertSingleToRoman', function() {
+    it('should be callable', function()  {
+      romannumbers.ConvertSingleToRoman(1)
+    });
+
+    it('should only accept integer', function()   {
+      assert.ok(romannumbers.ConvertSingleToRoman(2) === "II")
+      expect(() => romannumbers.ConvertSingleToRoman('A')).to.throw("n is not an integer")
+      expect(() => romannumbers.ConvertSingleToRoman('B')).to.throw("n is not an integer") 
+      expect(() => romannumbers.ConvertSingleToRoman("D")).to.throw("n is not an integer")
+      expect(() => romannumbers.ConvertSingleToRoman(null)).to.throw("n is not an integer")
+      expect(() => romannumbers.ConvertSingleToRoman(true)).to.throw("n is not an integer")
+      expect(() => romannumbers.ConvertSingleToRoman()).to.throw("n is not an integer")
+      
+    });
+
+    it('should return a string on success', function()  {
+      
+      assert.ok(typeof(romannumbers.ConvertSingleToRoman(3)) === "string")
+      
+    });
+
+    it('should convert singles to roman', function()   {
+      assert.ok(romannumbers.ConvertSingleToRoman(1) === "I")
+      assert.ok(romannumbers.ConvertSingleToRoman(5) === "V")
+      assert.ok(romannumbers.ConvertSingleToRoman(9) === "IX")
+
+    });
+
+    it('should throw error if n <= 0', function() {
+      expect(() => romannumbers.ConvertSingleToRoman(0)).to.throw("n must be a postive non-zero integer and less then 9")
+      expect(() => romannumbers.ConvertSingleToRoman(-1)).to.throw("n must be a postive non-zero integer and less then 9")
+      expect(() => romannumbers.ConvertSingleToRoman(-13)).to.throw("n must be a postive non-zero integer and less then 9")
+  
+    });
+
+    it('should only take n < 10', function() {
+      
+      expect(() => romannumbers.ConvertSingleToRoman(10)).to.throw("n must be a postive non-zero integer and less then 9")
+      expect(() => romannumbers.ConvertSingleToRoman(15)).to.throw("n must be a postive non-zero integer and less then 9")
+      expect(() => romannumbers.ConvertSingleToRoman(100)).to.throw("n must be a postive non-zero integer and less then 9")
+      expect(() => romannumbers.ConvertSingleToRoman(1000)).to.throw("n must be a postive non-zero integer and less then 9")
+      
+    });
+   
+    
+  });
+
 });
