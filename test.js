@@ -70,6 +70,30 @@ describe('RomanNumbers', function() {
       assert.ok(romannumbers.ConvertArabicToRoman(99) === "XCIX")
     });
 
+    it('should convert 100 to roman', function() {
+
+      assert.ok(romannumbers.ConvertArabicToRoman(100) === "C")
+      
+    });
+
+    it('should convert 200 to roman', function() {
+
+      assert.ok(romannumbers.ConvertArabicToRoman(200) === "CC")
+      
+    });
+
+    it('should convert 210 to roman', function () {
+
+      assert.ok(romannumbers.ConvertArabicToRoman(210) === "CCX")
+      
+    });
+
+    // it('should convert 345 to roman', function () {
+
+    //   assert.ok(romannumbers.ConvertArabicToRoman(210) === "CCCXLV")
+      
+    // });
+
   });
 
   describe('ConvertSingleToRoman', function() {

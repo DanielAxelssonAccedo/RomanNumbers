@@ -21,33 +21,48 @@ ConvertArabicToRoman:function(n)
     {
         const stringN = n.toString()
         const decands = stringN.charAt(0)
+        var result = this.ConvertDecandsToRoman(decands)
         var single = n % 10
-        var result = ""
-        
-
-        switch(decands) {
-            case '1': result = "X"; break;
-            case '2': result = "XX"; break;
-            case '3': result = "XXX"; break;
-            case '4': result = "XL"; break;
-            case '5': result = "L"; break;
-            case '6': result = "LX"; break;
-            case '7': result = "LXX"; break;
-            case '8': result = "LXXX"; break;
-            case '9': result = "XC"; break;
-
-        }
 
         if (single != 0)
         {
             result = result.concat(this.ConvertSingleToRoman(single))
 
         }
-        
-        
-        
+          
         return result
         
+    }
+
+    else if (n < 1000)
+    {
+        const stringN = n.toString()
+        const hundreds = stringN.charAt(0)
+        const decands = stringN.charAt(1)
+        var single = n % 10
+        var result = ""
+
+
+        switch(hundreds) {
+            case '1': result = "C"; break;
+            case '2': result = "CC"; break;
+            case '3': result = "CCC"; break;
+            case '4': result = "CD"; break;
+            case '5': result = "D"; break;
+            case '6': result = "DC"; break;
+            case '7': result = "DCC"; break;
+            case '8': result = "DCCC"; break;
+            case '9': result = "CM"; break;
+
+        }
+
+        if(decands != 0) {
+        result = result.concat(this.ConvertDecandsToRoman(decands))
+        }
+
+      
+
+        return result
     }
     
 
@@ -79,6 +94,23 @@ ConvertSingleToRoman:function(n) {
         case 9: return "IX"
     }
     
+},
+
+ConvertDecandsToRoman:function(n) {
+    switch(n) {
+        case '1': result = "X"; break;
+        case '2': result = "XX"; break;
+        case '3': result = "XXX"; break;
+        case '4': result = "XL"; break;
+        case '5': result = "L"; break;
+        case '6': result = "LX"; break;
+        case '7': result = "LXX"; break;
+        case '8': result = "LXXX"; break;
+        case '9': result = "XC"; break;
+
+    }
+
+    return result
 }
 
 }
