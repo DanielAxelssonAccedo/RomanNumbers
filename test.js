@@ -88,11 +88,17 @@ describe('RomanNumbers', function() {
       
     });
 
-    // it('should convert 345 to roman', function () {
+     it('should convert 345 to roman', function () {
 
-    //   assert.ok(romannumbers.ConvertArabicToRoman(210) === "CCCXLV")
+       assert.ok(romannumbers.ConvertArabicToRoman(345) === "CCCXLV")
       
-    // });
+    });
+
+    it('should not be higher then 3999', function () {
+
+       expect(() => romannumbers.ConvertArabicToRoman(4000)).to.throw("n can't be bigger then 3999")
+       
+    });
 
   });
 

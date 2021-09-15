@@ -1,31 +1,33 @@
 
 module.exports = {
 
-ConvertArabicToRoman:function(n)
-{
-    if(Number.isInteger(n) != true)
-    {
+ConvertArabicToRoman:function(n)  {
+
+    if(Number.isInteger(n) != true)  {
         throw new TypeError("n is not an integer")
     }
 
-    if(n <= 0)
-    {
+    if(n <= 0)  {
         throw new TypeError("n must be a postive non-zero integer")
     }
 
-    if(n < 10)
-    {
+    if(n >= 4000)  {
+        throw new TypeError("n can't be bigger then 3999")
+    }
+
+
+    if(n < 10)  {
         return this.ConvertSingleToRoman(n)
     }
-    else if(n < 100)
-    {
+    else if(n < 100)  {
+
         const stringN = n.toString()
         const decands = stringN.charAt(0)
         var result = this.ConvertDecandsToRoman(decands)
         var single = n % 10
 
-        if (single != 0)
-        {
+        if (single != 0)  {
+
             result = result.concat(this.ConvertSingleToRoman(single))
 
         }
@@ -34,8 +36,8 @@ ConvertArabicToRoman:function(n)
         
     }
 
-    else if (n < 1000)
-    {
+    else if (n < 1000)  {
+
         const stringN = n.toString()
         const hundreds = stringN.charAt(0)
         const decands = stringN.charAt(1)
@@ -57,7 +59,11 @@ ConvertArabicToRoman:function(n)
         }
 
         if(decands != 0) {
-        result = result.concat(this.ConvertDecandsToRoman(decands))
+            result = result.concat(this.ConvertDecandsToRoman(decands))
+        }
+
+        if(single != 0) {
+            result = result.concat(this.ConvertSingleToRoman(single))
         }
 
       
