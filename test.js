@@ -94,11 +94,20 @@ describe('RomanNumbers', function() {
       
     });
 
-    it('should not be higher then 3999', function () {
+ 
+    it('should convert 4000 to roman', function () {
 
-       expect(() => romannumbers.ConvertArabicToRoman(4000)).to.throw("n can't be bigger then 3999")
-       
-    });
+      assert.ok(romannumbers.ConvertArabicToRoman(4000) === "I\u0305V\u0305")
+     
+   });
+
+   
+   it('should convert 4000 to roman', function () {
+
+    assert.ok(romannumbers.ConvertArabicToRoman(5000) === "V\u0305")
+   
+ });
+
 
   });
 
