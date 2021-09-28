@@ -102,14 +102,31 @@ describe('RomanNumbers', function() {
    });
 
    
-   it('should convert 4000 to roman', function () {
+   it('should convert 5000 to roman', function () {
 
     assert.ok(romannumbers.ConvertArabicToRoman(5000) === "V\u0305")
    
- });
+    });
 
+    it('should convert 6100 to roman', function () {
 
-  });
+      assert.ok(romannumbers.ConvertArabicToRoman(6100) === "V\u0305I\u0305C")
+     
+    });
+
+    it('should convert 7230 to roman', function () {
+
+      assert.ok(romannumbers.ConvertArabicToRoman(7230) === "V\u0305I\u0305I\u0305CCXXX")
+     
+    });
+    
+    it('should convert 9999 to roman', function () {
+
+      assert.ok(romannumbers.ConvertArabicToRoman(9999) === "I\u0305X\u0305CMXCIX")
+     
+    });
+
+});
 
   describe('ConvertSingleToRoman', function() {
     it('should be callable', function()  {

@@ -37,21 +37,8 @@ ConvertArabicToRoman:function(n)  {
         const hundreds = stringN.charAt(0)
         const decands = stringN.charAt(1)
         var single = n % 10
-        var result = ""
+        var result = this.ConvertHundredsToRoman(hundreds)
 
-
-        switch(hundreds) {
-            case '1': result = "C"; break;
-            case '2': result = "CC"; break;
-            case '3': result = "CCC"; break;
-            case '4': result = "CD"; break;
-            case '5': result = "D"; break;
-            case '6': result = "DC"; break;
-            case '7': result = "DCC"; break;
-            case '8': result = "DCCC"; break;
-            case '9': result = "CM"; break;
-
-        }
 
         if(decands != 0) {
             result = result.concat(this.ConvertDecandsToRoman(decands))
@@ -86,18 +73,7 @@ ConvertArabicToRoman:function(n)  {
 
         console.log(result)
         if(hundreds != 0){ 
-            switch(hundreds) {
-                case '1': result = "C"; break;
-                case '2': result = "CC"; break;
-                case '3': result = "CCC"; break;
-                case '4': result = "CD"; break;
-                case '5': result = "D"; break;
-                case '6': result = "DC"; break;
-                case '7': result = "DCC"; break;
-                case '8': result = "DCCC"; break;
-                case '9': result = "CM"; break;
-
-            }
+          result = result.concat(this.ConvertHundredsToRoman(hundreds))
         }
 
         if(decands != 0) {
@@ -154,6 +130,23 @@ ConvertDecandsToRoman:function(n) {
         case '7': result = "LXX"; break;
         case '8': result = "LXXX"; break;
         case '9': result = "XC"; break;
+
+    }
+
+    return result
+},
+
+ConvertHundredsToRoman:function(n) {
+    switch(n) {
+            case '1': result = "C"; break;
+            case '2': result = "CC"; break;
+            case '3': result = "CCC"; break;
+            case '4': result = "CD"; break;
+            case '5': result = "D"; break;
+            case '6': result = "DC"; break;
+            case '7': result = "DCC"; break;
+            case '8': result = "DCCC"; break;
+            case '9': result = "CM"; break;
 
     }
 
